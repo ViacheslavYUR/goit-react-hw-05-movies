@@ -1,14 +1,11 @@
-import PropTypes from 'prop-types';
-
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import NotFoundPage from 'pages/NotFound/NotFoundPage';
-
 import { fetchReviews } from 'shared/services/fetch-api';
 
-import { ReviewList } from './MovieRewiewers.styled';
-import { ReviewAutorName } from './MovieRewiewers.styled';
+import { ReviewList, ReviewAutorName } from './MovieRewiewers.styled';
 
 const MovieRewiewers = () => {
   const [reviews, setReviews] = useState([]);
@@ -54,7 +51,7 @@ MovieRewiewers.defaultProps = [];
 MovieRewiewers.propTypes = {
   id: PropTypes.number,
   autor: PropTypes.string,
-  content:PropTypes.string,
-}
+  content: PropTypes.string,
+};
 
 export default MovieRewiewers;

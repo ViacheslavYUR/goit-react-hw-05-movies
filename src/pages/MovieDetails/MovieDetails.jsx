@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 import { fetchMovieById } from 'shared/services/fetch-api';
 import NotFoundPage from 'pages/NotFound/NotFoundPage';
 
-import * as MovieDetail from './MovieDetails.styled.js';
+import * as MovieDetail from './MovieDetails.styled';
 
 const {
   Main,

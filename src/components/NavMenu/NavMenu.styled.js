@@ -7,10 +7,11 @@ export const StyledLink = styled(NavLink)`
   display: inline-block;
   padding: 10px 15px;
 
-   &.active {
+  &.active {
     color: white;
     background-color: orangered;
-    border-radius:5px;
+    font-weight: 700;
+    border-radius: 5px;
   }
 `;
 

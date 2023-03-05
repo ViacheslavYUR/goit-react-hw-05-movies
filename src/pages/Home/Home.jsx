@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchTrending } from 'shared/services/fetch-api';
+
+import MovieList from 'components/MovieList/MovieList';
+import Loader from 'shared/Loader/Loader';
 import { PaginationStyled } from 'shared/Pagination.syled';
 import { Main } from './Home.styled';
-import MovieList from 'components/MovieList/MovieList';
-
-import Loader from 'shared/Loader/Loader';
 
 const Home = () => {
   const [items, setItems] = useState([]);
@@ -13,9 +13,7 @@ const Home = () => {
   const [params, setParams] = useSearchParams();
   const [loading, setLoading] = useState(false);
 
-  const currentPage = Number(params.get('page'))
-    ? Number(params.get('page'))
-    : 1;
+  const currentPage = Number(params.get('page')) ? Number(params.get('page')) : 1;
 
   useEffect(() => {
     const getTrending = async page => {
@@ -26,9 +24,8 @@ const Home = () => {
         setTotalPages(total_pages);
       } catch (error) {
         console.log(error.message);
-      }
-      finally {
-         setLoading(false)
+      } finally {
+        setLoading(false);
       }
     };
     getTrending(currentPage);
@@ -42,7 +39,7 @@ const Home = () => {
     <Main>
       <h1>Trending today</h1>
       <MovieList results={items} />
-       {loading && <Loader/>}
+      {loading && <Loader />}
       {totalPages > 1 && (
         <PaginationStyled
           breakLabel="..."

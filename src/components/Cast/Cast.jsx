@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import NotFoundPage from 'pages/NotFound/NotFoundPage';
-
 import { fetchCredits } from 'shared/services/fetch-api';
 
 import { CastList, CastItem, ActorWrap } from './Cast.styled';

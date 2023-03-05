@@ -1,18 +1,16 @@
 import PropTypes from 'prop-types';
-import { StyledList } from './MovieList.styled';
 import { useLocation } from 'react-router-dom';
 
-import { MovieLink } from './MovieList.styled';
-
+import { StyledList, MovieLink, StyledItem } from './MovieList.styled';
 
 const MovieList = ({ results }) => {
   const location = useLocation();
   const elements = results.map(({ id, title }) => (
-    <li key={id}>
-      <MovieLink  to={`/movies/${id}`}state={{ from: location }}>
+    <StyledItem key={id}>
+      <MovieLink to={`/movies/${id}`} state={{ from: location }}>
         <p>{title}</p>
       </MovieLink>
-    </li>
+    </StyledItem>
   ));
   return <StyledList>{elements}</StyledList>;
 };
@@ -24,8 +22,10 @@ MovieList.defaultProps = {
 };
 
 MovieList.propTypes = {
-  results: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-  })),
+  results: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ),
 };

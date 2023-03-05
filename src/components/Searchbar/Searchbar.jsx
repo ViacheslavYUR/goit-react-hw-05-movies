@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { ImSearch } from 'react-icons/im';
 import { toast } from 'react-toastify';
 
-import * as SearchBar from './Searchbar.styled';
+import { Container, Form, SearchButton, Input } from './Searchbar.styled';
 
 import initialState from './initialState';
 
@@ -30,13 +30,13 @@ const Searchbar = ({ onSubmit }) => {
   const { query } = state;
 
   return (
-    <SearchBar.Container>
-      <SearchBar.Form onSubmit={handleSubmit}>
-        <SearchBar.SearchButton type="submit" aria-label="search-button">
-            <ImSearch />
-        </SearchBar.SearchButton>
+    <Container>
+      <Form onSubmit={handleSubmit}>
+        <SearchButton type="submit" aria-label="search-button">
+          <ImSearch />
+        </SearchButton>
 
-        <SearchBar.Input
+        <Input
           name="search"
           value={query}
           type="text"
@@ -46,8 +46,8 @@ const Searchbar = ({ onSubmit }) => {
           required
           onChange={handleChange}
         />
-      </SearchBar.Form>
-    </SearchBar.Container>
+      </Form>
+    </Container>
   );
 };
 

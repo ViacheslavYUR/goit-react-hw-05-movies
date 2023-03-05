@@ -1,21 +1,17 @@
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState, useMemo, useCallback } from 'react';
-import { PaginationStyled } from 'shared/Pagination.syled';
 import { Notify } from 'notiflix';
 
 import { fetchMovies } from 'shared/services/fetch-api';
+import { PaginationStyled } from 'shared/Pagination.syled';
+import Loader from 'shared/Loader/Loader';
 import Searchbar from 'components/Searchbar/Searchbar';
 import MovieList from 'components/MovieList/MovieList';
-
-import Loader from 'shared/Loader/Loader';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const params = useMemo(
-    () => Object.fromEntries([...searchParams]),
-    [searchParams]
-  );
+  const params = useMemo(() => Object.fromEntries([...searchParams]), [searchParams]);
 
   const { query, page } = params;
   const currentPage = Number(page) ? Number(page) : 1;
@@ -35,7 +31,7 @@ const Movies = () => {
         const { results, total_pages } = await fetchMovies(page, query);
         if (!results.length) {
           Notify.failure('No found');
-          setTotalPages(0)
+          setTotalPages(0);
         } else {
           setTotalPages(total_pages);
           setMovie(results);
@@ -67,7 +63,7 @@ const Movies = () => {
   };
 
   return (
-    <main style={{paddingBottom:20,}}>
+    <main style={{ paddingBottom: 20 }}>
       <Searchbar onSubmit={onSearchMovie} />
       <MovieList results={movie} />
       {error && <p>Error{error.message}</p>}

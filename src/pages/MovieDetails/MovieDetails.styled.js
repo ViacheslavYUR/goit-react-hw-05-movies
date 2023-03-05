@@ -37,12 +37,14 @@ export const Wrapper = styled.div`
 
 export const GoBack = styled.button`
   color: #f8f8ff;
-  background-color: #556b2f;
+  background-color: orangered;
   border: none;
-  outline: none;
   border-radius: 5px;
   padding: 5px 10px;
   margin-bottom: 10px;
+  &:hover {
+    background-color: #0000cd;
+  }
 `;
 
 export const Image = styled.img`
@@ -61,10 +63,16 @@ export const StyledLink = styled(NavLink)`
   align-items: center;
   font-weight: 700;
   padding: 4px 8px;
-  color: brown;
-  border: 1px solid brown;
+  background-color: orangered;
+  color: #f8f8ff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  &:hover {
+    background-color: #0000cd;
+  }
   &.active {
-    color: #0000cd;
+    color: #000;
   }
 `;
 
@@ -83,3 +91,22 @@ export const GenresTitle = styled.span`
   font-weight: 600;
   font-size: 18px;
 `;
+
+// color: #f8f8ff;
+// background-color: orangered;
+// border: none;
+// border-radius: 5px;
+// padding: 5px 10px;
+// margin-bottom: 10px;
+// &:hover {
+//   background-color: #0000cd;
+
+//   display: flex;
+// align-items: center;
+// font-weight: 700;
+// padding: 4px 8px;
+// color: brown;
+// border: 1px solid brown;
+// &.active {
+//   color: #0000cd;
+// }
